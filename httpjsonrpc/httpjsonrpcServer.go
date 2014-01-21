@@ -1,10 +1,10 @@
 package httpjsonrpc
 
 import(
-	"http"
+	"net/http"
 	"io/ioutil"
 	"log"
-	"json"
+	"encoding/json"
 )
 
 //multiplexer that keeps track of every function to be called on specific rpc call

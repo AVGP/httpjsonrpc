@@ -1,15 +1,14 @@
 package httpjsonrpc
 
 import (
-    "json"
+    "encoding/json"
     "io/ioutil"
     "log"
-    "http"
+    "net/http"
     "strings"
-    "os"
 )
 
-func Call(address string, method string, id interface{}, params []interface{})(map[string]interface{}, os.Error){
+func Call(address string, method string, id interface{}, params []interface{})(map[string]interface{}, error){
     data, err := json.Marshal(map[string]interface{}{
         "method": method,
         "id":     id,

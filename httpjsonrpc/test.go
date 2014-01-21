@@ -1,10 +1,10 @@
 package httpjsonrpc
 
 import (
-    "json"
+    "encoding/json"
     "io/ioutil"
     "log"
-    "http"
+    "net/http"
     "strings"
 )
 
