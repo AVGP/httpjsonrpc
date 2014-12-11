@@ -13,7 +13,7 @@ const (
   Version2 = "2.0"
 )
 
-func createRequestBody(method string, id interface{}, params []interface{}, version string) ([]byte, error) {
+func createRequestBody(method string, id interface{}, params interface{}, version string) ([]byte, error) {
   jsonMap := map[string]interface{}{
       "method": method,
       "id":     id,
@@ -53,7 +53,7 @@ func makeRequest(address string, data []byte)(map[string]interface{}, error) {
   return result, nil
 }
 
-func CallV2(address string, method string, id interface{}, params []interface{})(map[string]interface{}, error){
+func CallV2(address string, method string, id interface{}, params interface{})(map[string]interface{}, error){
     data, err := createRequestBody(method, id, params, Version2)
     if err != nil {
         log.Fatalf("Marshal: %v", err)
@@ -63,7 +63,7 @@ func CallV2(address string, method string, id interface{}, params []interface{})
     return makeRequest(address, data)
 }
 
-func Call(address string, method string, id interface{}, params []interface{})(map[string]interface{}, error){
+func Call(address string, method string, id interface{}, params interface{})(map[string]interface{}, error){
     data, err := createRequestBody(method, id, params, Version1)
     if err != nil {
         log.Fatalf("Marshal: %v", err)
