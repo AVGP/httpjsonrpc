@@ -21,7 +21,7 @@ func createRequestBody(method string, id interface{}, params []interface{}, vers
   }
 
   if version == Version2 {
-    jsonMap["version"] = version
+    jsonMap["jsonrpc"] = version
   }
 
   return json.Marshal(jsonMap)
